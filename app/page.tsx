@@ -1,5 +1,5 @@
-import Overview from "./(dashboard)/overview/page";
+import LoginPage from "./(auth-pages)/login/page";
 
 export default function Home() {
-  return <Overview />;
+  return <LoginPage />;
 }
