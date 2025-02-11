@@ -1,6 +1,6 @@
-import type { Transaction } from "../types/transaction";
+import type { Wallet } from "../types/transaction";
 
-export const transactions: Transaction[] = [
+export const wallets: Wallet[] = [
   {
     id: "67593",
     icon: "PiggyBank",

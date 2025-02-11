@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+
 import { icons } from "./types/icons";
-import { Transaction } from "./types/transaction";
+import { Wallet } from "./types/transaction";
 
 interface TransactionListProps {
-  transactions: Transaction[] | undefined;
-  onSelect: (transaction: Transaction) => void;
+  transactions: Wallet[] | undefined;
+  onSelect: (transaction: Wallet) => void;
 }
 
 export function TransactionList({
@@ -19,10 +19,11 @@ export function TransactionList({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="w-full max-w-md mx-auto bg-background p-6"
+      suppressHydrationWarning
     >
-      <h1 className="text-2xl font-semibold text-gray-700 mb-6">
+      <span className="text-2xl font-semibold text-gray-700 mb-6">
         Transactions
-      </h1>
+      </span>
       <div className="space-y-4">
         {transactions?.map((transaction) => {
           const Icon = icons[transaction?.icon as keyof typeof icons];
@@ -40,7 +41,7 @@ export function TransactionList({
                 >
                   <Icon className="w-6 h-6 text-white" />
                 </motion.div>
-                <div>
+                <>
                   <motion.p
                     layoutId={`title-${transaction.id}`}
                     className="font-medium text-gray-900"
@@ -53,7 +54,7 @@ export function TransactionList({
                   >
                     {transaction.category}
                   </motion.p>
-                </div>
+                </>
               </div>
               <motion.p
                 layoutId={`amount-${transaction.id}`}

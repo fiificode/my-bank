@@ -1,4 +1,4 @@
-export interface Transaction {
+export interface Wallet {
   id?: string;
   icon?: string;
   title?: string;

@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { icons } from "./types/icons";
-import { Transaction } from "./types/transaction";
+import { Wallet } from "./types/transaction";
 
 interface TransactionDetailProps {
-  transaction: Transaction;
+  transaction: Wallet;
   onClose: () => void;
 }
 
@@ -41,7 +41,7 @@ export function TransactionDetail({
           >
             <Icon className="w-6 h-6 text-white" />
           </motion.div>
-          <div>
+          <>
             <motion.p
               layoutId={`title-${transaction.id}`}
               className="font-medium text-gray-900"
@@ -54,12 +54,14 @@ export function TransactionDetail({
             >
               {transaction.category}
             </motion.p>
-          </div>
+          </>
           <motion.p
             layoutId={`amount-${transaction.id}`}
             className="text-gray-900 font-medium ml-auto"
           >
-            -${transaction.amount.toFixed(2)}
+            {transaction.amount !== undefined
+              ? `-$${transaction.amount.toFixed(2)}`
+              : "-$0.00"}
           </motion.p>
         </div>
 
